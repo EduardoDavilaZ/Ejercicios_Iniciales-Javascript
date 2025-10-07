@@ -125,11 +125,11 @@ let contarTarjetasPorEquipo = () => {
     const equipos = [];
 
     for (let futbolista of futbolistas) {
-        let existe = equipos.find((equipo) => equipo.nombre == futbolista.equipo);
+        let equipo = equipos.find((equipo) => equipo.nombre == futbolista.equipo);
 
-        if (existe) {
-            existe.amarillas += futbolista.tarjetaAmarilla;
-            existe.rojas += futbolista.tarjetaRoja;
+        if (equipo) {
+            equipo.amarillas += futbolista.tarjetaAmarilla;
+            equipo.rojas += futbolista.tarjetaRoja;
         } else {
             equipos.push({
                 nombre: futbolista.equipo,
