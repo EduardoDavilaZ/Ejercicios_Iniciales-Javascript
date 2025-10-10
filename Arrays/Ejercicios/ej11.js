@@ -26,7 +26,12 @@ let multiplos = (t, num) => {
     return (t.filter(x => x % num  == 0)).length;
 }
 
+let acum = (t) => {
+    return (t.filter(x => x % 2 == 0)).reduce((x, y) => x + y, 0);
+}
+
 introducir(t);
 console.log("Negativos: " + valoresNegativos(t));
 console.log("Positivos: " + valoresPositivos(t));
-console.log("Múltiplos " + multiplos(t, 15));
+console.log("Múltiplos: " + multiplos(t, 15));
+console.log("Valor acumulado: " + acum(t));
