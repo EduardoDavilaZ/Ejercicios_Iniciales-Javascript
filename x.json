@@ -1,0 +1,15 @@
+{
+    "idMision": 1,
+    "nombre": "Misión 1",
+    "nave": {
+        "nombre": "Nave 1",
+        "modelo": "Modelo A",
+        "combustible": 100
+    },
+    "astronautas": [
+        { "nombre": "Astro 1", "edad": 43, "pais": "España" },
+        { "nombre": "Astro 2", "edad": 33, "pais": "España" },
+        { "nombre": "Astro 3", "edad": 53, "pais": "Portugal" }
+    ],
+    "planetaDestino": "Marte"
+}
