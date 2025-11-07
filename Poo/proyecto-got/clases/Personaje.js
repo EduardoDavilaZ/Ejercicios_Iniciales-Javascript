@@ -12,12 +12,11 @@ export class Personaje {
     #edad;
     #estado;
     #casa;
-    #arma;
 
     constructor(nombre, edad) {
         this.#nombre = nombre;
         this.#edad = edad;
-        this.#estado = "vivo";
+        this.#estado = true;
         this.#casa = "";
         console.log("Personaje creado")
     }
@@ -35,16 +34,6 @@ export class Personaje {
     }
 
     presentarse = () => {
-        return `Soy ${this.#nombre} de la Casa ${this.#casa}`;
+        console.log(`Soy ${this.#nombre} de la Casa ${this.#casa}`);
     }
-
-    set arma(arma){
-        
-        //comprueba si es un arma o no.
-        // setea bien el arma.nombre
-        console.log(`${this.#nombre} ha equipado el arma ${arma.nombre}`);
-        this.#arma = arma;
-    }
-
-
 }

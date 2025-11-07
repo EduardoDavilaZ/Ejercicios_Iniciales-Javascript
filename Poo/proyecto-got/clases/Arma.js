@@ -21,4 +21,8 @@ export class Arma {
     get nombre(){
         return this.#nombre;
     }
+    
+    get daño(){
+        return this.#daño;
+    }
 }

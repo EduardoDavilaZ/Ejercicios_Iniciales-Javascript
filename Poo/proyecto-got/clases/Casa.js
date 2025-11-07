@@ -39,4 +39,8 @@ export class Casa {
     get nombre(){
         return this.#nombre;
     }
+
+    get miembros(){
+        return this.#miembros;
+    }
 }

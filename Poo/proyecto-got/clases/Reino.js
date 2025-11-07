@@ -3,7 +3,7 @@ ser un Personaje). Deberemos ser capaces de poder agregar
 una casa, listar las casas y mostrar información del rey.*/
 
 import { Casa } from './Casa.js';
-import { Personaje } from './Personaje.js';
+import { Rey } from './Rey.js';
 
 export class Reino {
     #nombre;
@@ -34,13 +34,13 @@ export class Reino {
         }
     }
 
-    set rey(personaje){
-        if (!(personaje instanceof Personaje)) {
-            console.log("Ese no es un personaje");
+    set rey(rey){
+        if (!(rey instanceof Rey)) {
+            console.log("Ese no es un Rey");
             return false;
         };
-        this.#rey = personaje;
-        console.log(`${personaje.nombre} ha sido proclamado rey de ${this.#nombre}`);
+        this.#rey = rey;
+        console.log(`${rey.nombre} ha sido proclamado rey de ${this.#nombre}`);
     }
 
     obtenerReyActual = () => {
