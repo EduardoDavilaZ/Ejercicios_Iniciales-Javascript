@@ -54,7 +54,7 @@ export class Batalla {
         console.log(guerreros);
     }
 
-    mostrarGuerrerosMuertosEnCombate(){
+    mostrarGuerrerosMuertosEnBatalla(){
         console.log(this.#muertos);
     }
 
