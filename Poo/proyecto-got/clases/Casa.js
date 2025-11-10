@@ -32,7 +32,7 @@ export class Casa {
     listarMiembros = () => {
         console.log("Miembros de la casa " + this.#nombre);
         for (let miembro of this.#miembros){
-            console.log("- Casa " + miembro.nombre);
+            console.log("- " + miembro.nombre);
         }
     }
 

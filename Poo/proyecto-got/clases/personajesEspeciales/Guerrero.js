@@ -1,13 +1,13 @@
 
 import { Personaje  } from "../Personaje.js";
-import { Arma  } from "./Arma.js";
+import { Arma  } from "../Arma.js";
 
 export class Guerrero extends Personaje {
 
     #arma;
     #vida;
 
-    constructor(nombre, edad, arma){
+    constructor(nombre, edad, estado, arma){
         super(nombre, edad, estado);
         this.#arma = arma;
         this.#vida = 100;
@@ -31,8 +31,12 @@ export class Guerrero extends Personaje {
         return this.#vida;
     }
 
+    get estado(){
+        return super.estado;
+    }
+
     set estado(estado){
-        this.estado = estado;
+        super.estado = estado;
     }
 
     luchar(){

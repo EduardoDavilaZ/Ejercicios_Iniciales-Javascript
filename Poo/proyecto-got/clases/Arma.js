@@ -8,10 +8,10 @@ export class Arma {
     #daño;
     #tipo;
 
-    constructor(nombre = "", daño = 0, tipo = ""){
+    constructor(nombre = "", daño = 0){
         this.#nombre = nombre;
         this.#daño = daño;
-        this.#tipo = tipo;
+        this.#tipo = "";
     }
 
     descripcion = () => {

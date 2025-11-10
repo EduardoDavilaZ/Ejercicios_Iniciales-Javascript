@@ -33,6 +33,14 @@ export class Personaje {
         return this.#casa;
     }
 
+    get estado(){
+        return this.#estado;
+    }
+
+    set estado(estado){
+        this.#estado = estado;
+    }
+
     presentarse = () => {
         console.log(`Soy ${this.#nombre} de la Casa ${this.#casa}`);
     }

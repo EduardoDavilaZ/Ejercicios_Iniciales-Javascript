@@ -1,6 +1,6 @@
 
-import { Guerrero  } from "./Guerrero.js";
-import { Casa } from "./Casa.js";
+import { Guerrero  } from "./personajesEspeciales/Guerrero.js";
+import { Casa  } from "./Casa.js";
 
 export class Batalla {
     
@@ -9,38 +9,53 @@ export class Batalla {
     #muertos;
 
     constructor(casaA, casaB){
-        this.casaA = casaA;
-        this.casaB = casaB;
+        this.#casaA = casaA;
+        this.#casaB = casaB;
+        this.#muertos = [];
     }
 
     iniciarBatalla(){
-        let guerrerosA = obtenerGuerreros(this.casaA);
-        let guerrerosB = obtenerGuerreros(this.casaB);
+        let guerrerosA = this.obtenerGuerreros(this.#casaA);
+        let guerrerosB = this.obtenerGuerreros(this.#casaB);
 
-        batalla(guerrerosA, guerrerosB);
-        this.mostrarGuerrerosMuertosEnCombate();
+        this.batalla(guerrerosA, guerrerosB);
+        
     }
 
     batalla(guerrerosA, guerrerosB){
-        for (let guerreroA of guerrerosA){
-            for (let guerreroB of guerrerosB){
-                console.log(`Nuevo enfrentamiento: ${guerreroA.nombre} vs ${guerreroB.nombre}`);
+        let totalGuerreros = guerrerosA.length + guerrerosB.length;
+        let ultimoGanador;
 
-                guerreroA.atacar(guerreroB);
-                if (!guerreroB.estado) {
-                    this.#muertos.push(guerreroB);
-                    guerrerosB.pop(guerreroB);
-                };
+        do{
+            for (let guerreroA of guerrerosA){
+                for (let guerreroB of guerrerosB){
+                    if (guerreroA.estado && guerreroB.estado){
+                        console.log(`Nuevo enfrentamiento: ${guerreroA.nombre} vs ${guerreroB.nombre}`);
 
-                guerreroB.atacar(guerreroA);
-                if (!guerreroA.estado) {
-                    this.#muertos.push(guerreroA);
-                    guerrerosA.pop(guerreroB);
-                };
+                        guerreroA.atacar(guerreroB);
+                        if (!guerreroB.estado) {
+                            this.#muertos.push(guerreroB);
+                            ultimoGanador = guerreroA;
+                            continue;
+                        };
 
-                console.log(`${guerreroA.nombre}: ${guerreroA.vida} | ${guerreroB.nombre}: ${guerreroB.vida} `);
+                        guerreroB.atacar(guerreroA);
+                        if (!guerreroA.estado) {
+                            this.#muertos.push(guerreroA);
+                            ultimoGanador = guerreroB;
+                        };
+
+                        console.log(`${guerreroA.nombre}: ${guerreroA.vida} | ${guerreroB.nombre}: ${guerreroB.vida} `);
+                    }
+                }
             }
-        }
+        } while(this.comprobar(totalGuerreros));
+
+        console.log(`La batalla ha sido ganada por la casa ${ultimoGanador.casa}`);
+    }
+
+    comprobar(totalGuerreros){
+        return this.#muertos.length + 1 != totalGuerreros ? true : false;
     }
 
     obtenerGuerreros(casa){
@@ -52,10 +67,13 @@ export class Batalla {
             }
         }
         console.log(guerreros);
+        return guerreros;
     }
 
     mostrarGuerrerosMuertosEnBatalla(){
         console.log(this.#muertos);
+        for (let guerrero of this.#muertos){
+            console.log(guerrero);
+        }
     }
-
 }
