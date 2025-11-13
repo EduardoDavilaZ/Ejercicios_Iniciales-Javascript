@@ -55,7 +55,7 @@ export class Batalla {
     }
 
     comprobar(totalGuerreros){
-        return this.#muertos.length + 1 != totalGuerreros ? true : false;
+        return this.#muertos.length + 1 == totalGuerreros ? true : false;
     }
 
     obtenerGuerreros(casa){

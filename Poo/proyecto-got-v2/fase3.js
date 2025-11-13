@@ -6,13 +6,13 @@ import { Batalla } from './clases/Batalla.js';
 const casaStark = new Casa("Stark", "El invierno se acerca");
 const casaLannister = new Casa("Lannister", "Oye mi rugido");
 
-const garra = new Arma("Garra", 90);
-const aguja = new Arma("Aguja", 70);
-const hacha = new Arma("Hacha del Norte", 80);
-const espadaLarga = new Arma("Espada Larga", 85);
-const ballesta = new Arma("Ballesta", 75);
-const filoRojo = new Arma("Filo Rojo", 88);
-const lanzaDeCaza = new Arma("Lanza de Caza", 60);
+const garra = new Arma("Garra", 90, "garra");
+const aguja = new Arma("Aguja", 70, "aguja");
+const hacha = new Arma("Hacha del Norte", 80, "hacha");
+const espadaLarga = new Arma("Espada Larga", 85, "espada");
+const ballesta = new Arma("Ballesta", 75, "ballesta");
+const filoRojo = new Arma("Filo Rojo", 88, "espada");
+const lanzaDeCaza = new Arma("Lanza de Caza", 60, "lanza");
 
 // === GUERREROS DE LA CASA STARK ===
 const jon = new Guerrero("Jon Snow", 25, true, garra);
@@ -27,20 +27,20 @@ const tyrion = new Guerrero("Tyrion Lannister", 30, true, ballesta);
 const gregor = new Guerrero("Gregor Clegane", 38, true, hacha);
 
 // === AÑADIR PERSONAJES A LAS CASAS ===
-casaStark.añadirMiembros(jon);
-casaStark.añadirMiembros(arya);
-casaStark.añadirMiembros(robb);
-casaStark.añadirMiembros(brienne);
+casaStark.agregarMiembro(jon);
+casaStark.agregarMiembro(arya);
+casaStark.agregarMiembro(robb);
+casaStark.agregarMiembro(brienne);
 
-casaLannister.añadirMiembros(jaime);
-casaLannister.añadirMiembros(cersei);
-casaLannister.añadirMiembros(tyrion);
-casaLannister.añadirMiembros(gregor);
+casaLannister.agregarMiembro(jaime);
+casaLannister.agregarMiembro(cersei);
+casaLannister.agregarMiembro(tyrion);
+casaLannister.agregarMiembro(gregor);
 
-casaStark.listarMiembros();
-casaLannister.listarMiembros();
+casaStark.mostrarMiembros();
+casaLannister.mostrarMiembros();
 
-const batallaBastardos = new Batalla(casaLannister, casaStark);
-batallaBastardos.iniciarBatalla();
+const batallaBastardos = new Batalla();
+batallaBastardos.iniciarBatalla(casaStark, casaLannister);
 
 batallaBastardos.mostrarGuerrerosMuertosEnBatalla();
